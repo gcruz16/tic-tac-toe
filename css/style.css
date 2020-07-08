@@ -1,59 +1,84 @@
 body{
-    background-color: palegoldenrod;
+    background-color:lightgrey;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* display:flex;
+    flex-direction: column;
+    justify-content: center; */
 }
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 100px;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    
+    height:200px;
+    width:200px;
+    background-color: lightseagreen;
+    grid-template-columns: 60px 60px 60px;
+    padding: 5px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    border:2px solid white;
+    justify-content: center;
 }
 .grid-item {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 120px;
+  border: 5px solid black;
+  padding: 20px;
   font-size: 30px;
   text-align: center;
 }
 .button{
   border: solid;
   color: rgb(37, 99, 119);
-  padding: 15px 32px;
+  padding: 5px 10px;
   text-align: center;
   display: block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 6px 4px;
   cursor: pointer;
   background-color: lightseagreen;
-  color: white;
+  color: rgb(255, 255, 255);
   
 
 }
-#div1{
-    
+#blue-player{
+  background-color: blue;
+  text-align: left;
+  font-size: 15px;
+  padding: 10px;
+  height:20px;
+  width:70px;
+  
 }
-#div2{
-   
+#red-player{
+  background-color: red;
+  text-align: left;
+  font-size: 15px;
+  padding: 10px;
+  height:20px;
+  width:70px;
 }
-#div3{
-     
+
+.game-board{
+  border: 2px solid white;
+  background-color: lightseagreen;
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+  height:120px;
+  width:170px;
+  color: white;
+
 }
-#div4{
-     
+.game-board-score{
+    display: inline-block;
+    border: 2px solid white;
+} 
+#red-score{
+  height:20px;
+  width: 30px;
+  padding: 10px;
+
 }
-#div5{
-    
-}
-#div6{
-   
-}
-#div7{
-     
-}
-#div8{
-     
-}
-#div9{
-     
+#blue-score{
+  height:20px;  
+  width: 30px;
+  padding: 10px;
 }

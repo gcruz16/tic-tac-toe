@@ -1,25 +1,40 @@
-const div1Btn = document.querySelector("#div1");
-const div2Btn = document.querySelector("#div2");
-const div3Btn = document.querySelector("#div3");
-const div4Btn = document.querySelector("#div4");
-const div5Btn = document.querySelector("#div5");
-const div6Btn = document.querySelector("#div6");
-const div7Btn = document.querySelector("#div7");
-const div8Btn = document.querySelector("#div8");
-const div9Btn = document.querySelector("#div9");
+//Select all Divs
+let playerTurn = true;
+let divAllBtn = document.querySelectorAll(".grid-item");
+let resetBtn = document.querySelector(".button");
 
+console.log(divAllBtn);
+let changeColor = (event) => {
+    //console.log("2 " + playerTurn);
+    if (event.target.style.background !== "") {
+        alert("Please select diferent square, square has been clicked and you should not be able to click it again");
+    } else {
+        if (playerTurn) {
+            event.target.style.background = "red";
 
-div1Btn.addEventListener('click', changeColor);
-div2Btn.addEventListener('click', changeColor);
-div3Btn.addEventListener('click', changeColor);
-div4Btn.addEventListener('click', changeColor);
-div5Btn.addEventListener('click', changeColor);
-div6Btn.addEventListener('click', changeColor);
-div7Btn.addEventListener('click', changeColor);
-div8Btn.addEventListener('click', changeColor);
-div9Btn.addEventListener('click', changeColor);
+        } else {
+            event.target.style.background = "blue";
+        }
+        playerTurn = !playerTurn;
 
+        //console.log("3 " + playerTurn);
+    }
+};
 
-function changeColor() {
-    console.log("change color");
+let resetColor = (event) => {
+    console.log("reset button");
+    divAllBtn.forEach(myDiv => {
+        myDiv.setAttribute("style", `background-color: white`);
+    });
+};
+
+let selectWinner = (event) => {
+    console.log("Select winner");
 }
+
+divAllBtn.forEach(myDiv => {
+    console.log("item -->" + myDiv);
+    myDiv.addEventListener('click', changeColor);
+});
+
+resetBtn.addEventListener('click', resetColor);
