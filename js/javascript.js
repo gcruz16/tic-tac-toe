@@ -86,18 +86,18 @@ function validateWinner() {
         (divAllBtn[0].style.background === divAllBtn[4].style.background && divAllBtn[0].style.background === divAllBtn[8].style.background && divAllBtn[0].style.background !== "") ||
         (divAllBtn[0].style.background === divAllBtn[3].style.background && divAllBtn[0].style.background === divAllBtn[6].style.background && divAllBtn[0].style.background !== "")) {
         winPlayer = divAllBtn[0].style.background;
-        console.log(winPlayer);
+        //console.log(winPlayer);
     }
     else if ((divAllBtn[3].style.background === divAllBtn[4].style.background && divAllBtn[3].style.background === divAllBtn[5].style.background && divAllBtn[3].style.background !== "") ||
         (divAllBtn[2].style.background === divAllBtn[4].style.background && divAllBtn[2].style.background === divAllBtn[6].style.background && divAllBtn[2].style.background !== "") ||
         (divAllBtn[1].style.background === divAllBtn[4].style.background && divAllBtn[1].style.background === divAllBtn[7].style.background && divAllBtn[1].style.background !== "")) {
         winPlayer = divAllBtn[4].style.background;
-        console.log(winPlayer);
+        //console.log(winPlayer);
     }
     else if ((divAllBtn[6].style.background === divAllBtn[7].style.background && divAllBtn[6].style.background === divAllBtn[8].style.background && divAllBtn[6].style.background !== "") ||
         (divAllBtn[2].style.background === divAllBtn[5].style.background && divAllBtn[2].style.background === divAllBtn[8].style.background && divAllBtn[2].style.background !== "")) {
         winPlayer = divAllBtn[8].style.background;
-        console.log(winPlayer);
+        //console.log(winPlayer);
 
     }
     else {
