@@ -9,14 +9,16 @@ let winnerCombinations = ["012", "345", "678", "258", "147", "036", "246", "048"
 let divBlueScore = document.querySelector("#blue-score");
 let divRedScore = document.querySelector("#red-score");
 let defaultCurrentPlayer = "Current player: ";
+let divMessage = document.querySelector("#message");
 let divCurrentPlayer = document.querySelector("#current-player");
+let message = "";
 
 
 window.addEventListener("load", loadValues);
 
 function loadValues() {
     divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
-    console.log("entra");
+    divMessage.style.background = "lightseagreen";
 };
 
 console.log(divAllBtn);
@@ -51,16 +53,18 @@ let changeColor = (event) => {
 
 let resetColor = (event) => {
     counterMoves = 0;
+    message = "";
     //console.log("reset button");
     divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
     divCurrentPlayer.style.background = "red";
+    divMessage.style.background = "lightseagreen";
+    divMessage.innerHTML = `Message:`;
     divAllBtn.forEach(myDiv => {
         myDiv.setAttribute("style", `background-color: white`);
     });
 };
 
 divAllBtn.forEach(myDiv => {
-    console.log("item -->" + myDiv);
     myDiv.addEventListener('click', changeColor);
 });
 
@@ -92,7 +96,7 @@ function validateWinner() {
     }
     else {
         if (counterMoves === 9 && winPlayer === "") {
-            console.log("9 No winner yet");
+            message = "Message: it's a tie";
         }
         else if (winPlayer !== "") {
             console.log("No winner!!");
@@ -100,7 +104,11 @@ function validateWinner() {
     }
 
     if (winPlayer !== "") {
-        displayMessage = `Winner is ${winPlayer} player`;
+        displayMessage = `Message: ${winPlayer} player won!`;
+        divMessage.innerHTML = displayMessage;
+        divMessage.style.background = `${winPlayer}`;
+
+
         if (winPlayer === "blue") {
             bluePlayerScore++;
             divBlueScore.innerHTML = bluePlayerScore;
@@ -108,8 +116,13 @@ function validateWinner() {
             redPlayerScore++;
             divRedScore.innerHTML = redPlayerScore;
         }
-        console.log(displayMessage);
+        //console.log(displayMessage);
     }
+    if (message !== "") {
+        divMessage.innerHTML = message;
+        divMessage.style.background = "lightseagreen";
+    }
+
 
 }
 
