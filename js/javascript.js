@@ -8,10 +8,20 @@ let redPlayerScore = 0;
 let winnerCombinations = ["012", "345", "678", "258", "147", "036", "246", "048"];
 let divBlueScore = document.querySelector("#blue-score");
 let divRedScore = document.querySelector("#red-score");
+let defaultCurrentPlayer = "Current player: ";
+let divCurrentPlayer = document.querySelector("#current-player");
 
+
+window.addEventListener("load", loadValues);
+
+function loadValues() {
+    divCurrentPlayer.innerHTML = `Current player: red`;
+    console.log("entra");
+};
 
 console.log(divAllBtn);
 let changeColor = (event) => {
+    event.preventDefault();
     //console.log("2 " + playerTurn);
     counterMoves++;
 
@@ -20,10 +30,12 @@ let changeColor = (event) => {
         counterMoves--;
     } else {
         if (playerTurn) {
-            event.target.style.background = "red";
+            event.target.style.background = "blue";
+            divCurrentPlayer.innerHTML = `Current player: red`;
 
         } else {
-            event.target.style.background = "blue";
+            event.target.style.background = "red";
+            divCurrentPlayer.innerHTML = `Current player: blue`;
         }
         playerTurn = !playerTurn;
 
@@ -38,6 +50,7 @@ let changeColor = (event) => {
 let resetColor = (event) => {
     counterMoves = 0;
     //console.log("reset button");
+    divCurrentPlayer.innerHTML = `Current player: red`;
     divAllBtn.forEach(myDiv => {
         myDiv.setAttribute("style", `background-color: white`);
     });
