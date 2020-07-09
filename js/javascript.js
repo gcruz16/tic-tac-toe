@@ -12,6 +12,7 @@ let defaultCurrentPlayer = "Current player: ";
 let divMessage = document.querySelector("#message");
 let divCurrentPlayer = document.querySelector("#current-player");
 let message = "";
+let clickReset = false;
 
 
 window.addEventListener("load", loadValues);
@@ -27,8 +28,12 @@ let changeColor = (event) => {
     //console.log("2 " + playerTurn);
     counterMoves++;
 
-    if (event.target.style.background !== "") {
+    if (event.target.style.background !== "" && !clickReset) {
         alert("Please select diferent square, square has been clicked and you should not be able to click it again");
+        counterMoves--;
+    } else if (clickReset) {
+        alert("Please reset the game");
+        resetBtn
         counterMoves--;
     } else {
         if (playerTurn) {
@@ -43,11 +48,11 @@ let changeColor = (event) => {
         }
         playerTurn = !playerTurn;
 
+        //Validate winner
+        validateWinner();
 
-        //console.log("3 " + playerTurn);
     }
-    //Validate winner
-    validateWinner();
+
 
 };
 
@@ -57,6 +62,7 @@ let resetColor = (event) => {
     //console.log("reset button");
     divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
     divCurrentPlayer.style.background = "red";
+    clickReset = false;
     divMessage.style.background = "lightseagreen";
     divMessage.innerHTML = `Message:`;
     divAllBtn.forEach(myDiv => {
@@ -107,7 +113,7 @@ function validateWinner() {
         displayMessage = `Message: ${winPlayer} player won!`;
         divMessage.innerHTML = displayMessage;
         divMessage.style.background = `${winPlayer}`;
-
+        clickReset = true;
 
         if (winPlayer === "blue") {
             bluePlayerScore++;
