@@ -15,7 +15,7 @@ let divCurrentPlayer = document.querySelector("#current-player");
 window.addEventListener("load", loadValues);
 
 function loadValues() {
-    divCurrentPlayer.innerHTML = `Current player: red`;
+    divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
     console.log("entra");
 };
 
@@ -30,12 +30,14 @@ let changeColor = (event) => {
         counterMoves--;
     } else {
         if (playerTurn) {
-            event.target.style.background = "blue";
-            divCurrentPlayer.innerHTML = `Current player: red`;
+            event.target.style.background = "red";
+            divCurrentPlayer.innerHTML = `<b>Current player: </b> blue`;
+            divCurrentPlayer.style.background = "blue";
 
         } else {
-            event.target.style.background = "red";
-            divCurrentPlayer.innerHTML = `Current player: blue`;
+            event.target.style.background = "blue";
+            divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
+            divCurrentPlayer.style.background = "red";
         }
         playerTurn = !playerTurn;
 
@@ -50,7 +52,8 @@ let changeColor = (event) => {
 let resetColor = (event) => {
     counterMoves = 0;
     //console.log("reset button");
-    divCurrentPlayer.innerHTML = `Current player: red`;
+    divCurrentPlayer.innerHTML = `<b>Current player: </b> red`;
+    divCurrentPlayer.style.background = "red";
     divAllBtn.forEach(myDiv => {
         myDiv.setAttribute("style", `background-color: white`);
     });
